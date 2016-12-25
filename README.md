@@ -8,7 +8,7 @@ This repo is just a kata to experiment new technologies.
 [x] HMR
 [x] babel
 [x] react
-[] flow
+[x] typescript
 [] jest
 [] redux
 [] lodash

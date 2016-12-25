@@ -15,7 +15,7 @@ module.exports = {
     // only- means to only hot reload for successful updates
 
 
-    './index.jsx'
+    './index.tsx'
     // the entry point of our app
   ],
   output: {
@@ -44,7 +44,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
   },
   module: {
     rules: [
@@ -54,6 +54,12 @@ module.exports = {
           'babel-loader',
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          'awesome-typescript-loader'
+        ]
       },
       {
         test: /\.css$/,
