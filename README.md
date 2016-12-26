@@ -9,9 +9,9 @@ This repo is just a kata to experiment new technologies.
 [x] babel
 [x] react
 [x] typescript
-[] jest
+[x] jest
 [] redux
-[] lodash
+[x] lodash
 
 ## Goal
 
