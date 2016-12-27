@@ -1,9 +1,8 @@
 import * as React from 'react';
 
 interface CounterProps {
-  increment: () => any,
-  reset: () => any,
-  value: number
+  increment: () => any;
+  value: number;
 }
 
 export default class Counter extends React.Component<CounterProps, void> {

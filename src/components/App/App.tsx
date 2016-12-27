@@ -12,7 +12,7 @@ interface AppProps {
   dispatch: Dispatch<any>
 }
 
-class App extends React.Component<AppProps, void> {
+export class App extends React.Component<AppProps, void> {
   render() {
     const { counter, dispatch } = this.props;
 

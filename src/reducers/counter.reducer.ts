@@ -1,18 +1,17 @@
-import { Action } from '../actions';
+import { handleActions, Action } from 'redux-actions';
+import {
+    INCREMENT_COUNTER,
+    RESET_COUNTER
+} from '../actions';
 
 const initialState: Store.Counter = { value: 0 };
 
-// TODO use redux-action for a better syntax
-function counter(state: Store.Counter = initialState, action: Action) {
-    const {value} = state;
-    switch (action.type) {
-        case 'INCREMENT_COUNTER':
-            return { value: value + action.delta };
+export default handleActions<Store.Counter | { delta: number } | void>({
+    [INCREMENT_COUNTER]: (state: Store.Counter, action: Action<{ delta: number }>): Store.Counter => {
+        return { value: state.value + action.payload.delta || 1 };
+    },
 
-        case 'RESET_COUNTER':
-            return { value: 0 };
+    [RESET_COUNTER]: (state: Store.Counter, action: Action<void>): Store.Counter => {
+        return { value: 0 };
     }
-    return state;
-}
-
-export default counter;
+}, initialState);
