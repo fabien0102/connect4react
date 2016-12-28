@@ -10,7 +10,7 @@ This repo is just a kata to experiment new technologies.
 [x] react
 [x] typescript
 [x] jest
-[] redux
+[x] redux
 [x] lodash
 
 ## Goal
