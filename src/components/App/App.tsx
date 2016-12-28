@@ -5,11 +5,11 @@ import * as ReactDOM from 'react-dom';
 import * as styles from './App.css';
 import *  as _ from 'lodash';
 import Counter from '../Counter/Counter';
-import { incrementCounter } from '../../actions';
+import { incrementCounter } from '../../actions/actions';
 
 interface AppProps {
   counter: any;
-  dispatch: Dispatch<any>
+  dispatch: Dispatch<any>;
 }
 
 export class App extends React.Component<AppProps, void> {
@@ -23,7 +23,6 @@ export class App extends React.Component<AppProps, void> {
         <Counter
           value={counter.value}
           increment={() => dispatch(incrementCounter(1))}
-          reset={() => { } }
           />
       </div>
     )

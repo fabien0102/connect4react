@@ -1,17 +1,19 @@
 import { handleActions, Action } from 'redux-actions';
+import { AppStore } from '../store';
 import {
     INCREMENT_COUNTER,
-    RESET_COUNTER
-} from '../actions';
+    RESET_COUNTER,
+    IncrementCounterPayload
+} from '../actions/actions';
 
-const initialState: Store.Counter = { value: 0 };
+const initialState: AppStore.Counter = { value: 0 };
 
-export default handleActions<Store.Counter | { delta: number } | void>({
-    [INCREMENT_COUNTER]: (state: Store.Counter, action: Action<{ delta: number }>): Store.Counter => {
+export default handleActions<AppStore.Counter | IncrementCounterPayload | void>({
+    [INCREMENT_COUNTER]: (state: AppStore.Counter, action: Action<IncrementCounterPayload>): AppStore.Counter => {
         return { value: state.value + action.payload.delta || 1 };
     },
 
-    [RESET_COUNTER]: (state: Store.Counter, action: Action<void>): Store.Counter => {
+    [RESET_COUNTER]: (state: AppStore.Counter, action: Action<void>): AppStore.Counter => {
         return { value: 0 };
     }
 }, initialState);
