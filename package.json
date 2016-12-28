@@ -35,6 +35,7 @@
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "redux-actions": "^1.2.0",
+    "redux-typescript-actions": "^1.2.0",
     "source-map-loader": "^0.1.5",
     "style-loader": "^0.13.1",
     "ts-jest": "^18.0.0",
