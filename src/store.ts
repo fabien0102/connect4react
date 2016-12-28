@@ -2,10 +2,16 @@ import { createStore, Store } from 'redux';
 import rootReducer from './reducers/reducers';
 import { get } from 'lodash';
 
+export enum Case { Empty = 0, Player1 = 1, Player2 = 2 };
+
 export declare namespace AppStore {
-    type Counter = { value: number };
+    type Game = {
+        board: Array<Array<Case>>;
+        winner?: string;
+        currentPlayer: number;
+    };
     type All = {
-        counter: Counter;
+        game: Game;
     };
 }
 

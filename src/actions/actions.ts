@@ -1,17 +1,9 @@
-import { createAction } from 'redux-actions';
+import actionCreatorFactory from 'redux-typescript-actions';
+const createAction = actionCreatorFactory();
 
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const RESET_COUNTER = 'RESET_COUNTER';
-
-export interface IncrementCounterPayload {
-    delta: number;
+export const ADD_DISC = 'ADD_DISC';
+export interface AddDiscPayload {
+    column: number;
+    player: number;
 }
-export const incrementCounter = createAction(
-    INCREMENT_COUNTER,
-    (delta: number): IncrementCounterPayload => ({ delta })
-);
-
-export const resetCounter = createAction(
-    RESET_COUNTER,
-    () => { }
-);
+export const addDisc = createAction<AddDiscPayload>(ADD_DISC);

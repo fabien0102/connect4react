@@ -5,32 +5,28 @@ import * as ReactDOM from 'react-dom';
 import * as styles from './App.css';
 import *  as _ from 'lodash';
 import Counter from '../Counter/Counter';
-import { incrementCounter } from '../../actions/actions';
+import { } from '../../actions/actions';
 
 interface AppProps {
-  counter: any;
+  game: any;
   dispatch: Dispatch<any>;
 }
 
 export class App extends React.Component<AppProps, void> {
   render() {
-    const { counter, dispatch } = this.props;
+    const { game, dispatch } = this.props;
 
     return (
       <div className={styles.app}>
         <h2>Hello fafa, how are you? {_.startCase('coucou johnny')}</h2>
         <h3>run into a react component</h3>
-        <Counter
-          value={counter.value}
-          increment={() => dispatch(incrementCounter(1))}
-          />
       </div>
-    )
+    );
   }
 };
 
 const mapStateToProps = (state: any) => ({
-  counter: state.counter
+  game: state.game
 });
 
 export default connect(mapStateToProps)(App);
