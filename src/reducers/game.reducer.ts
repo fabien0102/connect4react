@@ -4,7 +4,8 @@ import { MAX_ROWS, MAX_COLUMNS, MAX_ALIGN_DISCS } from '../constants';
 import { cloneDeep } from 'lodash';
 import {
   ADD_DISC,
-  AddDiscPayload
+  AddDiscPayload,
+  NEW_GAME
 } from '../actions/actions';
 
 enum Cell { Empty = 0, Player1 = 1, Player2 = 2 }; // dublicate because of strange compilation error…
@@ -45,5 +46,8 @@ export default handleActions<AppStore.Game | AddDiscPayload>({
 
     // Default
     return state;
+  },
+  [NEW_GAME]: (state: AppStore.Game, action: Action<void>) => {
+    return cloneDeep(initialState);
   }
 }, initialState);

@@ -5,7 +5,7 @@ import { Action } from 'redux-actions';
 import * as ReactDOM from 'react-dom';
 import * as styles from './App.css';
 import Cell from '../Cell/Cell';
-import { addDisc, AddDiscPayload } from '../../actions/actions';
+import { addDisc, newGame } from '../../actions/actions';
 import { AppStore } from '../../store';
 
 interface AppProps {
@@ -32,8 +32,8 @@ export class App extends React.Component<AppProps, void> {
     });
 
     const playerState = (game.winner)
-      ? (<h3>Player {game.winner} win!</h3>)
-      : (<p>Current player: {game.currentPlayer}</p>)
+      ? (<h3>Player {game.winner} win! <button onClick={() => dispatch(newGame())}>New game</button></h3>)
+      : (<p>Current player: {game.currentPlayer}</p>);
 
     return (
       <div className={styles.app}>

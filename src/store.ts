@@ -7,7 +7,7 @@ enum Cell { Empty = 0, Player1 = 1, Player2 = 2 }; // dublicate because of stran
 export declare namespace AppStore {
     type Game = {
         board: Array<Array<Cell>>;
-        winner?: string;
+        winner?: number;
         currentPlayer: number;
     };
     type All = {
