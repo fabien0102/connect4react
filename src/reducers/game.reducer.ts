@@ -28,17 +28,19 @@ export default handleActions<AppStore.Game | AddDiscPayload>({
       board[action.payload.column][index] = state.currentPlayer;
       // Find if have winner
       let winString = Array.apply(null, Array(MAX_ALIGN_DISCS).fill(state.currentPlayer)).join(',');
-      // 1. column
       let haveColumnWin = board[action.payload.column].join(',').includes(winString);
-      // 2. row
       let haveRowWin = board.map(column => column[index]).join(',').includes(winString);
-      // 3. diagonal up
       let haveDiagonalUp = board.map((column, i) => column[index + (i - action.payload.column)]).join(',').includes(winString);
-      // 3. diagonal down
       let haveDiagnalDown = board.map((column, i) => column[index - (i - action.payload.column)]).join(',').includes(winString);
 
       if (haveColumnWin || haveRowWin || haveDiagonalUp || haveDiagnalDown) {
         return { board, currentPlayer: 0, winner: state.currentPlayer };
+      }
+
+      // Find draw case
+      let noMoreEmptyCell = !board.map(col => col.join(',')).join(',').includes('0');
+      if (noMoreEmptyCell) {
+        return { board, currentPlayer: 0, winner: 0 };
       }
 
       return { currentPlayer: state.currentPlayer % 2 + 1, board };

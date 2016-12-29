@@ -13,6 +13,11 @@ This repo is just a kata to experiment new technologies.
 [x] redux
 [x] lodash
 
+## TODO
+[] Draw case
+[] Better style
+[] Hover with next transparent disc
+
 ## Goal
 
 Construct a connect 4 game, from scratch (no starter kit), with latest tools available :)

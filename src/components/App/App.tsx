@@ -7,6 +7,7 @@ import * as styles from './App.scss';
 import Cell from '../Cell/Cell';
 import { addDisc, newGame } from '../../actions/actions';
 import { AppStore } from '../../store';
+import { isNumber } from 'lodash';
 
 interface AppProps {
   game: AppStore.Game;
@@ -31,9 +32,12 @@ export class App extends React.Component<AppProps, void> {
       return (<div className={styles.column} key={columnIndex}>{cells}</div>);
     });
 
-    const playerState = (game.winner)
-      ? (<h3>Player {game.winner} win! <button onClick={() => dispatch(newGame())}>New game</button></h3>)
-      : (<p>Current player: {game.currentPlayer}</p>);
+    let playerState = (<p>Current player: {game.currentPlayer}</p>);
+    if (isNumber(game.winner) && game.winner !== 0) {
+      playerState = (<h3>Player {game.winner} win! <button onClick={() => dispatch(newGame())}>New game</button></h3>);
+    } else if (isNumber(game.winner) && game.winner === 0){
+      playerState = (<h3>Draw! <button onClick={() => dispatch(newGame())}>New game</button></h3>);
+    }
 
     return (
       <div className={styles.app}>

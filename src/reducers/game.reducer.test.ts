@@ -241,6 +241,35 @@ describe('Game reducer', () => {
 
       expect(gameReducer(state, actions.addDisc({ column: 2 }))).toEqual(expected);
     });
+
+    it('should trigger draw if no more cell', () => {
+      const state = {
+        currentPlayer: 1,
+        board: [
+          [1, 1, 2, 1, 1, 2, 2],
+          [1, 2, 2, 2, 1, 1, 1],
+          [2, 1, 1, 2, 2, 1, 2],
+          [1, 1, 2, 1, 1, 1, 2],
+          [2, 1, 2, 2, 1, 2, 0],
+          [2, 2, 1, 1, 2, 2, 2]
+        ]
+      };
+
+      const expected = {
+        currentPlayer: 0,
+        winner: 0,
+        board: [
+          [1, 1, 2, 1, 1, 2, 2],
+          [1, 2, 2, 2, 1, 1, 1],
+          [2, 1, 1, 2, 2, 1, 2],
+          [1, 1, 2, 1, 1, 1, 2],
+          [2, 1, 2, 2, 1, 2, 1],
+          [2, 2, 1, 1, 2, 2, 2]
+        ]
+      };
+
+      expect(gameReducer(state, actions.addDisc({ column: 4 }))).toEqual(expected);
+    });
   });
 
   describe('new game', () => {
