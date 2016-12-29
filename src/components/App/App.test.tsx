@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import { App } from './App';
+import { initialState } from '../../reducers/game.reducer';
 import 'jest';
 
 describe('App', () => {
-    it('should have correct text', () => {
-        const app = shallow(<App counter={{ value: 0 }} dispatch={null} />);
+    it('should have correct title', () => {
+        const app = shallow(<App game={initialState} dispatch={null} />);
 
-        expect(app.find('h2').text()).toEqual('Hello fafa, how are you? Coucou Johnny');
+        expect(app.find('h1').text()).toEqual('Connect 4 react');
     });
 });
