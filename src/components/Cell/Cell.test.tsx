@@ -18,16 +18,16 @@ describe('Cell component', () => {
     expect(cell.hasClass(styles.empty)).toBeTruthy();
   });
 
-  it('should have `red-disc` class if value is 1', () => {
+  it('should have red disc class if value is 1', () => {
     const cell = shallow(<Cell value={1} column={0} onClick={onClick} />);
     expect(cell.hasClass(styles.cell)).toBeTruthy();
     expect(cell.hasClass(styles.redDisc)).toBeTruthy();
   });
 
-  it('should have `blue-disc` class if value is 2', () => {
+  it('should have yellow class if value is 2', () => {
     const cell = shallow(<Cell value={2} column={0} onClick={onClick} />);
     expect(cell.hasClass(styles.cell)).toBeTruthy();
-    expect(cell.hasClass(styles.blueDisc)).toBeTruthy();
+    expect(cell.hasClass(styles.yellowDisc)).toBeTruthy();
   });
 
   it('should call onClick on click', () => {

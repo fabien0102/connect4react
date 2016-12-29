@@ -1,4 +1,4 @@
 export const cell: string;
 export const empty: string;
 export const redDisc: string;
-export const blueDisc: string;
+export const yellowDisc: string;

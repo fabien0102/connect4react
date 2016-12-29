@@ -1,18 +1,31 @@
 .cell {
-  height: 20px;
-  width: 20px;
-  background-color: grey;
-  margin: 1px;
+  height: 60px;
+  width: 60px;
 }
 
 .empty {
-
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 59%,
+    darkcyan 60%, 
+  darkcyan 100%);
 }
 
 .redDisc {
-  background-color: red;
+  background: radial-gradient(
+    ellipse at center, 
+  red 0%, 
+  red 59%, 
+ darkcyan 60%, 
+  darkcyan 100%);
 }
 
-.blueDisc {
-  background-color: blue;
+.yellowDisc {
+  background: radial-gradient(
+    ellipse at center, 
+  yellow 0%, 
+  yellow 59%, 
+ darkcyan 60%, 
+  darkcyan 100%);
 }
