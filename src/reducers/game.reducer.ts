@@ -1,10 +1,12 @@
 import { handleActions, Action } from 'redux-actions';
 import { AppStore } from '../store';
 import { MAX_ROWS, MAX_COLUMNS, MAX_ALIGN_DISCS } from '../constants';
-import { cloneDeep } from 'lodash';
+import { cloneDeep, omit } from 'lodash';
 import {
   ADD_DISC,
   AddDiscPayload,
+  PROJECT_NEXT_MOVE,
+  ProjectNextMovePayload,
   NEW_GAME
 } from '../actions/actions';
 
@@ -18,7 +20,7 @@ export const initialState: AppStore.Game = {
 
 export default handleActions<AppStore.Game | AddDiscPayload>({
   [ADD_DISC]: (state: AppStore.Game, action: Action<AddDiscPayload>) => {
-    if (action.payload.column >= MAX_COLUMNS - 1) return state;
+    if (action.payload.column >= MAX_COLUMNS - 1 || action.payload.column < 0) return state;
 
     let board = cloneDeep(state.board);
 
@@ -49,6 +51,18 @@ export default handleActions<AppStore.Game | AddDiscPayload>({
     // Default
     return state;
   },
+
+  [PROJECT_NEXT_MOVE]: (state: AppStore.Game, action: Action<ProjectNextMovePayload>) => {
+    if (action.payload.column >= MAX_COLUMNS - 1 || action.payload.column < 0) return omit(state, 'nextCell');
+
+    const row = state.board[action.payload.column].findIndex(cell => cell === Cell.Empty);
+    if (row !== -1) {
+      return { ...state, nextCell: { column: action.payload.column, row } };
+    }
+
+    return omit(state, 'nextCell');
+  },
+
   [NEW_GAME]: (state: AppStore.Game, action: Action<void>) => {
     return cloneDeep(initialState);
   }

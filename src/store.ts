@@ -9,6 +9,7 @@ export declare namespace AppStore {
         board: Array<Array<Cell>>;
         winner?: number;
         currentPlayer: number;
+        nextCell?: {column: number, row: number}
     };
     type All = {
         game: Game;

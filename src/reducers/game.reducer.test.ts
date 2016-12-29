@@ -272,6 +272,94 @@ describe('Game reducer', () => {
     });
   });
 
+  describe('project next move', () => {
+    it('should set nextCell if find', () => {
+      const state = {
+        board: [
+          [0, 0, 0, 0, 0, 0, 0],
+          [1, 2, 1, 2, 0, 0, 0],
+          [2, 1, 0, 0, 0, 0, 0],
+          [2, 2, 0, 0, 0, 0, 0],
+          [2, 1, 2, 1, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0]
+        ],
+        currentPlayer: 2
+      };
+
+      const expected = {
+        board: [
+          [0, 0, 0, 0, 0, 0, 0],
+          [1, 2, 1, 2, 0, 0, 0],
+          [2, 1, 0, 0, 0, 0, 0],
+          [2, 2, 0, 0, 0, 0, 0],
+          [2, 1, 2, 1, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0]
+        ],
+        nextCell: { column: 3, row: 2 },
+        currentPlayer: 2
+      };
+
+      expect(gameReducer(state, actions.projectNextMove({ column: 3 }))).toEqual(expected);
+    });
+
+    it('should do nothing if no next cell in column', () => {
+      const state = {
+        board: [
+          [0, 0, 0, 0, 0, 0, 0],
+          [1, 2, 1, 2, 1, 1, 1],
+          [2, 1, 0, 0, 0, 0, 0],
+          [2, 2, 0, 0, 0, 0, 0],
+          [2, 1, 2, 1, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0]
+        ],
+        currentPlayer: 2
+      };
+
+      const expected = {
+        board: [
+          [0, 0, 0, 0, 0, 0, 0],
+          [1, 2, 1, 2, 1, 1, 1],
+          [2, 1, 0, 0, 0, 0, 0],
+          [2, 2, 0, 0, 0, 0, 0],
+          [2, 1, 2, 1, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0]
+        ],
+        currentPlayer: 2
+      };
+
+      expect(gameReducer(state, actions.projectNextMove({ column: 1 }))).toEqual(expected);
+    });
+
+    it('should remove nextCell data if no next cell in column', () => {
+      const state = {
+        board: [
+          [0, 0, 0, 0, 0, 0, 0],
+          [1, 2, 1, 2, 1, 1, 1],
+          [2, 1, 0, 0, 0, 0, 0],
+          [2, 2, 0, 0, 0, 0, 0],
+          [2, 1, 2, 1, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0]
+        ],
+        currentPlayer: 2,
+        nextCell: {column: 1, row: 1}
+      };
+
+      const expected = {
+        board: [
+          [0, 0, 0, 0, 0, 0, 0],
+          [1, 2, 1, 2, 1, 1, 1],
+          [2, 1, 0, 0, 0, 0, 0],
+          [2, 2, 0, 0, 0, 0, 0],
+          [2, 1, 2, 1, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0]
+        ],
+        currentPlayer: 2
+      };
+
+      expect(gameReducer(state, actions.projectNextMove({ column: 1 }))).toEqual(expected);
+    });
+  });
+
   describe('new game', () => {
     it('should reset board', () => {
       const state = {

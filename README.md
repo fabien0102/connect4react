@@ -14,9 +14,9 @@ This repo is just a kata to experiment new technologies.
 [x] lodash
 
 ## TODO
-[] Draw case
+[x] Draw case
 [] Better style
-[] Hover with next transparent disc
+[x] Hover with next transparent disc
 
 ## Goal
 

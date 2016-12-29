@@ -1,4 +1,7 @@
 $background-color: blue;
+$yellow: yellow;
+$red: red;
+$project-opacity: 0.5;
 
 .cell {
   height: 60px;
@@ -7,28 +10,21 @@ $background-color: blue;
 
 .empty {
   cursor: pointer;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 0%,
-    transparent 59%,
-    $background-color 60%, 
-  $background-color 100%);
+  background: radial-gradient(ellipse at center, transparent 0%, transparent 59%, $background-color 60%, $background-color 100%);
 }
 
 .redDisc {
-  background: radial-gradient(
-    ellipse at center, 
-  red 0%, 
-  red 59%, 
- $background-color 60%, 
-  $background-color 100%);
+  background: radial-gradient(ellipse at center, $red 0%, $red 59%, $background-color 60%, $background-color 100%);
+
+  &.projection {
+    background: radial-gradient(ellipse at center, rgba($red, $project-opacity) 0%, rgba($red, $project-opacity) 59%, $background-color 60%, $background-color 100%);
+  }
 }
 
 .yellowDisc {
-  background: radial-gradient(
-    ellipse at center, 
-  yellow 0%, 
-  yellow 59%, 
- $background-color 60%, 
-  $background-color 100%);
+  background: radial-gradient(ellipse at center, $yellow 0%, $yellow 59%, $background-color 60%, $background-color 100%);
+
+  &.projection {
+    background: radial-gradient(ellipse at center, rgba($yellow, $project-opacity) 0%, rgba($yellow, $project-opacity) 59%, $background-color 60%, $background-color 100%);
+  }
 }

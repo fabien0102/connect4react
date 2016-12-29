@@ -6,6 +6,11 @@ describe('actions', () => {
     expect(actions.addDisc({ column: 2 })).toEqual(expected);
   });
 
+  it('should create an action to project next move', () => {
+    const expected = { type: 'PROJECT_NEXT_MOVE', payload: { column: 2 } };
+    expect(actions.projectNextMove({ column: 2 })).toEqual(expected);
+  });
+
   it('should create an action for request a new game', () => {
     const expected = { type: 'NEW_GAME'};
     expect(actions.newGame()).toEqual(expected);

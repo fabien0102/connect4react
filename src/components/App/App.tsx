@@ -5,9 +5,9 @@ import { Action } from 'redux-actions';
 import * as ReactDOM from 'react-dom';
 import * as styles from './App.scss';
 import Cell from '../Cell/Cell';
-import { addDisc, newGame } from '../../actions/actions';
+import { addDisc, newGame, projectNextMove } from '../../actions/actions';
 import { AppStore } from '../../store';
-import { isNumber } from 'lodash';
+import { isNumber, get } from 'lodash';
 
 interface AppProps {
   game: AppStore.Game;
@@ -19,13 +19,16 @@ export class App extends React.Component<AppProps, void> {
     const { game, dispatch } = this.props;
 
     const board = game.board.map((column, columnIndex) => {
-      const cells = column.map((cell, cellIndex) => {
+      const cells = column.map((cell, rowIndex) => {
+        const isProjection = (columnIndex === get(game, 'nextCell.column') && rowIndex === get(game, 'nextCell.row'));
         return (
           <Cell
-            key={`${columnIndex}-${cellIndex}`}
+            key={`${columnIndex}-${rowIndex}`}
+            isProjection={isProjection}
             column={columnIndex}
-            value={cell}
+            value={isProjection ? game.currentPlayer : cell}
             onClick={col => dispatch(addDisc({ column: col }))}
+            onMouseEnter={col => dispatch(projectNextMove({ column: col }))}
             />
         );
       });
@@ -35,7 +38,7 @@ export class App extends React.Component<AppProps, void> {
     let playerState = (<p>Current player: {game.currentPlayer}</p>);
     if (isNumber(game.winner) && game.winner !== 0) {
       playerState = (<h3>Player {game.winner} win! <button onClick={() => dispatch(newGame())}>New game</button></h3>);
-    } else if (isNumber(game.winner) && game.winner === 0){
+    } else if (isNumber(game.winner) && game.winner === 0) {
       playerState = (<h3>Draw! <button onClick={() => dispatch(newGame())}>New game</button></h3>);
     }
 
@@ -43,7 +46,7 @@ export class App extends React.Component<AppProps, void> {
       <div className={styles.app}>
         <h1>Connect 4 react</h1>
         {playerState}
-        <div className={styles.board}>{board}</div>
+        <div className={styles.board} onMouseLeave={() => dispatch(projectNextMove({ column: -1 }))}>{board}</div>
       </div>
     );
   }
