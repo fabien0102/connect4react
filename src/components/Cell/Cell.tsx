@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as styles from './Cell.css';
+import * as styles from './Cell.scss';
 
 interface CellProps {
   onClick: (column: number) => any;

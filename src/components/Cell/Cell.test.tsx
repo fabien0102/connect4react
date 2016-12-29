@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import Cell from './Cell';
-import * as styles from './Cell.css';
+import * as styles from './Cell.scss';
 import 'jest';
 
 describe('Cell component', () => {

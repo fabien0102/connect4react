@@ -1,3 +1,5 @@
+$background-color: blue;
+
 .cell {
   height: 60px;
   width: 60px;
@@ -8,8 +10,8 @@
     ellipse at center,
     transparent 0%,
     transparent 59%,
-    darkcyan 60%, 
-  darkcyan 100%);
+    $background-color 60%, 
+  $background-color 100%);
 }
 
 .redDisc {
@@ -17,8 +19,8 @@
     ellipse at center, 
   red 0%, 
   red 59%, 
- darkcyan 60%, 
-  darkcyan 100%);
+ $background-color 60%, 
+  $background-color 100%);
 }
 
 .yellowDisc {
@@ -26,6 +28,6 @@
     ellipse at center, 
   yellow 0%, 
   yellow 59%, 
- darkcyan 60%, 
-  darkcyan 100%);
+ $background-color 60%, 
+  $background-color 100%);
 }
