@@ -2,11 +2,11 @@ import { createStore, Store } from 'redux';
 import rootReducer from './reducers/reducers';
 import { get } from 'lodash';
 
-export enum Case { Empty = 0, Player1 = 1, Player2 = 2 };
+enum Cell { Empty = 0, Player1 = 1, Player2 = 2 }; // dublicate because of strange compilation error…
 
 export declare namespace AppStore {
     type Game = {
-        board: Array<Array<Case>>;
+        board: Array<Array<Cell>>;
         winner?: string;
         currentPlayer: number;
     };

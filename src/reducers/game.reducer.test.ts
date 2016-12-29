@@ -30,7 +30,7 @@ describe('Game reducer', () => {
       currentPlayer: 2
     };
 
-    expect(gameReducer(undefined, actions.addDisc({ column: 0, player: 1 }))).toEqual(expected);
+    expect(gameReducer(undefined, actions.addDisc({ column: 0 }))).toEqual(expected);
   });
 
   it('should add player disc on second column', () => {
@@ -46,7 +46,7 @@ describe('Game reducer', () => {
       currentPlayer: 2
     };
 
-    expect(gameReducer(undefined, actions.addDisc({ column: 1, player: 1 }))).toEqual(expected);
+    expect(gameReducer(undefined, actions.addDisc({ column: 1 }))).toEqual(expected);
   });
 
   it('should do nothing if column is overboard', () => {
@@ -62,7 +62,7 @@ describe('Game reducer', () => {
       currentPlayer: 1
     };
 
-    expect(gameReducer(undefined, actions.addDisc({ column: 6, player: 1 }))).toEqual(expected);
+    expect(gameReducer(undefined, actions.addDisc({ column: 6 }))).toEqual(expected);
   });
 
   it('should add player 2 a disc on second column', () => {
@@ -90,7 +90,7 @@ describe('Game reducer', () => {
       currentPlayer: 1
     };
 
-    expect(gameReducer(state, actions.addDisc({ column: 1, player: 2 }))).toEqual(expected);
+    expect(gameReducer(state, actions.addDisc({ column: 1 }))).toEqual(expected);
   });
 
   it('should add player 1 a disc on third column', () => {
@@ -118,7 +118,7 @@ describe('Game reducer', () => {
       currentPlayer: 2
     };
 
-    expect(gameReducer(state, actions.addDisc({ column: 2, player: 1 }))).toEqual(expected);
+    expect(gameReducer(state, actions.addDisc({ column: 2 }))).toEqual(expected);
   });
 
   it('should trigger win with a fulfill column', () => {
@@ -147,7 +147,7 @@ describe('Game reducer', () => {
       winner: 1
     };
 
-    expect(gameReducer(state, actions.addDisc({ column: 4, player: 1 }))).toEqual(expected);
+    expect(gameReducer(state, actions.addDisc({ column: 4 }))).toEqual(expected);
   });
 
   it('should trigger win with a fulfill row', () => {
@@ -176,7 +176,7 @@ describe('Game reducer', () => {
       winner: 1
     };
 
-    expect(gameReducer(state, actions.addDisc({ column: 3, player: 1 }))).toEqual(expected);
+    expect(gameReducer(state, actions.addDisc({ column: 3 }))).toEqual(expected);
   });
 
   it('should trigger win with a fulfill diagonal up', () => {
@@ -205,7 +205,7 @@ describe('Game reducer', () => {
       winner: 1
     };
 
-    expect(gameReducer(state, actions.addDisc({ column: 3, player: 1 }))).toEqual(expected);
+    expect(gameReducer(state, actions.addDisc({ column: 3 }))).toEqual(expected);
   });
 
   it('should trigger win with a fulfill diagonal down', () => {
@@ -234,6 +234,6 @@ describe('Game reducer', () => {
       winner: 2
     };
 
-    expect(gameReducer(state, actions.addDisc({ column: 2, player: 2 }))).toEqual(expected);
+    expect(gameReducer(state, actions.addDisc({ column: 2 }))).toEqual(expected);
   });
 });

@@ -1,5 +1,5 @@
 import { handleActions, Action } from 'redux-actions';
-import { AppStore, Case } from '../store';
+import { AppStore } from '../store';
 import { MAX_ROWS, MAX_COLUMNS, MAX_ALIGN_DISCS } from '../constants';
 import { cloneDeep } from 'lodash';
 import {
@@ -7,7 +7,8 @@ import {
   AddDiscPayload
 } from '../actions/actions';
 
-const emptyBoard = Array.apply(null, Array(MAX_ROWS)).map(() => Array(MAX_COLUMNS).fill(Case.Empty));
+enum Cell { Empty = 0, Player1 = 1, Player2 = 2 }; // dublicate because of strange compilation error…
+const emptyBoard = Array.apply(null, Array(MAX_ROWS)).map(() => Array(MAX_COLUMNS).fill(Cell.Empty));
 
 export const initialState: AppStore.Game = {
   board: emptyBoard,
@@ -17,16 +18,15 @@ export const initialState: AppStore.Game = {
 export default handleActions<AppStore.Game | AddDiscPayload>({
   [ADD_DISC]: (state: AppStore.Game, action: Action<AddDiscPayload>) => {
     if (action.payload.column >= MAX_COLUMNS - 1) return state;
-    if (action.payload.player !== state.currentPlayer) return state;
 
     let board = cloneDeep(state.board);
 
     // Add disc on top
-    const index = board[action.payload.column].findIndex(cell => cell === Case.Empty);
+    const index = board[action.payload.column].findIndex(cell => cell === Cell.Empty);
     if (index !== -1) {
-      board[action.payload.column][index] = action.payload.player;
+      board[action.payload.column][index] = state.currentPlayer;
       // Find if have winner
-      let winString = Array.apply(null, Array(MAX_ALIGN_DISCS).fill(action.payload.player)).join(',');
+      let winString = Array.apply(null, Array(MAX_ALIGN_DISCS).fill(state.currentPlayer)).join(',');
       // 1. column
       let haveColumnWin = board[action.payload.column].join(',').includes(winString);
       // 2. row
@@ -37,7 +37,7 @@ export default handleActions<AppStore.Game | AddDiscPayload>({
       let haveDiagnalDown = board.map((column, i) => column[index - (i - action.payload.column)]).join(',').includes(winString);
 
       if (haveColumnWin || haveRowWin || haveDiagonalUp || haveDiagnalDown) {
-        return { board, currentPlayer: 0, winner: action.payload.player };
+        return { board, currentPlayer: 0, winner: state.currentPlayer };
       }
 
       return { currentPlayer: state.currentPlayer % 2 + 1, board };
