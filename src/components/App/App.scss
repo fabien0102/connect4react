@@ -1,0 +1,17 @@
+.app {
+  font-family: helvetica, arial, sans-serif;
+  line-height: 200%;
+  padding: 6px 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column-reverse;
+}

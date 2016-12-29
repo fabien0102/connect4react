@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { Action } from 'redux-actions';
 import * as ReactDOM from 'react-dom';
-import * as styles from './App.css';
+import * as styles from './App.scss';
 import Cell from '../Cell/Cell';
 import { addDisc, newGame } from '../../actions/actions';
 import { AppStore } from '../../store';
