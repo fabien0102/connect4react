@@ -1,0 +1,18 @@
+.cell {
+  height: 20px;
+  width: 20px;
+  background-color: grey;
+  margin: 1px;
+}
+
+.empty {
+
+}
+
+.redDisc {
+  background-color: red;
+}
+
+.blueDisc {
+  background-color: blue;
+}

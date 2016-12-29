@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as styles from './Cell.css';
 
 interface CellProps {
   onClick: (column: number) => any;
@@ -13,10 +14,10 @@ export default class Cell extends React.Component<CellProps, void> {
 
   render() {
     const { value, onClick, column } = this.props;
-    let className = 'cell ';
-    if (value === 0) className += 'empty';
-    if (value === 1) className += 'red-disc';
-    if (value === 2) className += 'blue-disc';
+    let className = `${styles.cell} `;
+    if (value === 0) className += `${styles.empty}`;
+    if (value === 1) className += `${styles.redDisc}`;
+    if (value === 2) className += `${styles.blueDisc}`;
 
     return (
       <div className={className} onClick={this.onClickHandle.bind(this)} />

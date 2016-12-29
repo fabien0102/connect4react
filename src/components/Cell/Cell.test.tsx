@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 import Cell from './Cell';
+import * as styles from './Cell.css';
 import 'jest';
 
 describe('Cell component', () => {
@@ -13,20 +14,20 @@ describe('Cell component', () => {
 
   it('should have `empty` class if value is 0', () => {
     const cell = shallow(<Cell value={0} column={0} onClick={onClick} />);
-    expect(cell.hasClass('cell')).toBeTruthy();
-    expect(cell.hasClass('empty')).toBeTruthy();
+    expect(cell.hasClass(styles.cell)).toBeTruthy();
+    expect(cell.hasClass(styles.empty)).toBeTruthy();
   });
 
   it('should have `red-disc` class if value is 1', () => {
     const cell = shallow(<Cell value={1} column={0} onClick={onClick} />);
-    expect(cell.hasClass('cell')).toBeTruthy();
-    expect(cell.hasClass('red-disc')).toBeTruthy();
+    expect(cell.hasClass(styles.cell)).toBeTruthy();
+    expect(cell.hasClass(styles.redDisc)).toBeTruthy();
   });
 
   it('should have `blue-disc` class if value is 2', () => {
     const cell = shallow(<Cell value={2} column={0} onClick={onClick} />);
-    expect(cell.hasClass('cell')).toBeTruthy();
-    expect(cell.hasClass('blue-disc')).toBeTruthy();
+    expect(cell.hasClass(styles.cell)).toBeTruthy();
+    expect(cell.hasClass(styles.blueDisc)).toBeTruthy();
   });
 
   it('should call onClick on click', () => {
