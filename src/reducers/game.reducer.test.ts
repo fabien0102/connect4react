@@ -242,6 +242,23 @@ describe('Game reducer', () => {
       expect(gameReducer(state, actions.addDisc({ column: 2 }))).toEqual(expected);
     });
 
+    it('should do nothing if a player have win', () => {
+      const state = {
+        board: [
+          [0, 0, 0, 0, 0, 0, 0],
+          [1, 2, 1, 2, 0, 0, 0],
+          [2, 1, 2, 0, 0, 0, 0],
+          [2, 2, 0, 0, 0, 0, 0],
+          [2, 1, 2, 1, 0, 0, 0],
+          [0, 0, 0, 0, 0, 0, 0]
+        ],
+        currentPlayer: 0,
+        winner: 2
+      };
+
+      expect(gameReducer(state, actions.addDisc({ column: 2 }))).toEqual(state);
+    });
+
     it('should trigger draw if no more cell', () => {
       const state = {
         currentPlayer: 1,
@@ -341,7 +358,7 @@ describe('Game reducer', () => {
           [0, 0, 0, 0, 0, 0, 0]
         ],
         currentPlayer: 2,
-        nextCell: {column: 1, row: 1}
+        nextCell: { column: 1, row: 1 }
       };
 
       const expected = {

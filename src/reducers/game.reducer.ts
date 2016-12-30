@@ -21,6 +21,7 @@ export const initialState: AppStore.Game = {
 export default handleActions<AppStore.Game | AddDiscPayload>({
   [ADD_DISC]: (state: AppStore.Game, action: Action<AddDiscPayload>) => {
     if (action.payload.column >= MAX_COLUMNS - 1 || action.payload.column < 0) return state;
+    if (state.currentPlayer === 0) return state;
 
     let board = cloneDeep(state.board);
 
