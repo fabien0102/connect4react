@@ -40,17 +40,30 @@ export class App extends React.Component<AppProps, void> {
       {game.score[0]} - {game.score[1]}
       <i className={styles.yellow + ' ' + (game.currentPlayer === 2 ? styles.current : '')}>●</i>
     </div>);
-    if (isNumber(game.winner) && game.winner !== 0) {
-      playerState = (<h3>Player {game.winner} win! <button onClick={() => dispatch(newGame())}>New game</button></h3>);
-    } else if (isNumber(game.winner) && game.winner === 0) {
-      playerState = (<h3>Draw! <button onClick={() => dispatch(newGame())}>New game</button></h3>);
+
+    // End modal construction
+    let modalContent;
+    if (game.winner === 0) {
+      modalContent = (<h2>Draw!</h2>);
+    } else if (isNumber(game.winner)) {
+      modalContent = (<h2> {game.winner === 1 ? 'Red' : 'Yellow'} player win!</h2>);
     }
+    let endModal = (
+      <div className={styles.endModal}>
+        {modalContent}
+        <button onClick={() => dispatch(newGame())}>New game</button>
+      </div>
+    );
+
+    let overlay = (<div className={styles.overlay}></div>);
 
     return (
       <div className={styles.app}>
         <h1>Connect 4 react</h1>
         {playerState}
         <div className={styles.board} onMouseLeave={() => dispatch(projectNextMove({ column: -1 }))}>{board}</div>
+        {isNumber(game.winner) ? endModal : ''}
+        {isNumber(game.winner) ? overlay : ''}
       </div>
     );
   }
