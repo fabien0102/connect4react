@@ -9,6 +9,29 @@ h1 {
   font-family: 'Raleway', serif;
 }
 
+.score {
+  font-size: 2rem;
+  height: 4rem;
+
+}
+
+$player-size: 4rem;
+.yellow, .red {
+  position: relative;
+  top: 5px;
+  font-size: $player-size;
+  color: $yellow;
+
+  transition: font-size 200ms ease-in-out;
+  &.current {
+    font-size: $player-size * 1.3;
+  }
+}
+
+.red {
+  color: $red;
+}
+
 .app {
   font-family: helvetica, arial, sans-serif;
   line-height: 200%;
