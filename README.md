@@ -3,23 +3,16 @@
 This repo is just a kata to experiment new technologies.
 
 ## Technologies used
-[x] yarn
-[x] webpack 2
-[x] HMR
-[x] babel
-[x] react
-[x] typescript
-[x] jest
-[x] redux
-[x] lodash
 
-## TODO
-[x] Draw case
-[x] Better style
-[x] Hover with next transparent disc
-[x] Add score
-[ ] Add current player
-[ ] Add a result modal 
+- yarn
+- webpack 2
+- HMR
+- babel
+- react
+- typescript
+- jest
+- redux
+- lodash
 
 ## Goal
 
@@ -32,9 +25,3 @@ The two players then alternate turns dropping one of their discs at a time into 
 - board size: 7 columns x 6 rows
 - win if a player have 4 discs aligned
 - draw if board is fulfill
-
-# Refs
-
-https://github.com/didierfranc/redux-react-starter
-
-https://github.com/jpsierens/webpack-react-redux
