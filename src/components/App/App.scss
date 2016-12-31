@@ -1,3 +1,14 @@
+@import '../../styles/variables.scss';
+
+body {
+  background: radial-gradient(ellipse at center, lightblue 0%, darken(lightblue, 60) 100%);
+  color: white;
+}
+
+h1 {
+  font-family: 'Raleway', serif;
+}
+
 .app {
   font-family: helvetica, arial, sans-serif;
   line-height: 200%;
@@ -8,10 +19,42 @@
 }
 
 .board {
+  box-shadow: 10px 10px 50px rgba(black, 0.5);
+  position: relative;
   display: flex;
+  border-radius: 5px;
+  border: 10px solid darken($background-color, 5);
+  border-top: 10px solid lighten($background-color, 5);
+  border-bottom: 10px solid lighten($background-color, 2);
+
+  &:after {
+    position: absolute;
+    content: "";
+    background-color: darken($background-color, 10);
+    border-radius: 5px 5px 0 0;
+    width: 30px;
+    height: 200px;
+    top: 100%;
+    right: 0;
+    transform: translate(100%, -50%);
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    background-color: darken($background-color, 10);
+    border-radius: 5px 5px 0 0;
+    width: 30px;
+    height: 200px;
+    top: 100%;
+    left: 0;
+    transform: translate(-100%, -50%);
+  }
 }
 
 .column {
   display: flex;
   flex-direction: column-reverse;
+  border-top: 10px solid $background-color;
+  border-bottom: 10px solid $background-color;
 }

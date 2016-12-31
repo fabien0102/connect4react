@@ -35,7 +35,7 @@ export class App extends React.Component<AppProps, void> {
       return (<div className={styles.column} key={columnIndex}>{cells}</div>);
     });
 
-    let playerState = (<p>Current player: {game.currentPlayer}</p>);
+    let playerState = (<p>Red {game.score[0]} - {game.score[1]} Yellow</p>);
     if (isNumber(game.winner) && game.winner !== 0) {
       playerState = (<h3>Player {game.winner} win! <button onClick={() => dispatch(newGame())}>New game</button></h3>);
     } else if (isNumber(game.winner) && game.winner === 0) {

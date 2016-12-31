@@ -15,7 +15,8 @@ const emptyBoard = Array.apply(null, Array(MAX_ROWS)).map(() => Array(MAX_COLUMN
 
 export const initialState: AppStore.Game = {
   board: emptyBoard,
-  currentPlayer: 1
+  currentPlayer: 1,
+  score: [0, 0]
 };
 
 export default handleActions<AppStore.Game | AddDiscPayload>({
@@ -37,16 +38,17 @@ export default handleActions<AppStore.Game | AddDiscPayload>({
       let haveDiagnalDown = board.map((column, i) => column[index - (i - action.payload.column)]).join(',').includes(winString);
 
       if (haveColumnWin || haveRowWin || haveDiagonalUp || haveDiagnalDown) {
-        return { board, currentPlayer: 0, winner: state.currentPlayer };
+        let score = state.score.map((points, i) => (i === state.currentPlayer - 1) ? points + 1 : points);
+        return { board, currentPlayer: 0, winner: state.currentPlayer, score };
       }
 
       // Find draw case
       let noMoreEmptyCell = !board.map(col => col.join(',')).join(',').includes('0');
       if (noMoreEmptyCell) {
-        return { board, currentPlayer: 0, winner: 0 };
+        return { score: state.score, board, currentPlayer: 0, winner: 0 };
       }
 
-      return { currentPlayer: state.currentPlayer % 2 + 1, board };
+      return { currentPlayer: state.currentPlayer % 2 + 1, board, score: state.score };
     }
 
     // Default
@@ -65,6 +67,6 @@ export default handleActions<AppStore.Game | AddDiscPayload>({
   },
 
   [NEW_GAME]: (state: AppStore.Game, action: Action<void>) => {
-    return cloneDeep(initialState);
+    return {...cloneDeep(initialState), score: state.score};
   }
 }, initialState);

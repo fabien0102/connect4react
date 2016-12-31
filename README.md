@@ -15,8 +15,11 @@ This repo is just a kata to experiment new technologies.
 
 ## TODO
 [x] Draw case
-[] Better style
+[x] Better style
 [x] Hover with next transparent disc
+[x] Add score
+[ ] Add current player
+[ ] Add a result modal 
 
 ## Goal
 

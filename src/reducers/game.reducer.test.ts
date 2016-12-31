@@ -5,6 +5,7 @@ describe('Game reducer', () => {
   describe('initial state', () => {
     it('should have correct board on init', () => {
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0],
@@ -21,9 +22,9 @@ describe('Game reducer', () => {
 
   describe('add disc', () => {
 
-
     it('should add player disc on first column', () => {
       const expected = {
+        score: [0, 0],
         board: [
           [1, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0],
@@ -40,6 +41,7 @@ describe('Game reducer', () => {
 
     it('should add player disc on second column', () => {
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 0, 0, 0, 0, 0, 0],
@@ -56,6 +58,7 @@ describe('Game reducer', () => {
 
     it('should do nothing if column is overboard', () => {
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0],
@@ -72,6 +75,7 @@ describe('Game reducer', () => {
 
     it('should add player 2 a disc on second column', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 0, 0, 0, 0, 0, 0],
@@ -84,6 +88,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -100,6 +105,7 @@ describe('Game reducer', () => {
 
     it('should add player 1 a disc on third column', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -112,6 +118,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -128,6 +135,7 @@ describe('Game reducer', () => {
 
     it('should trigger win with a fulfill column', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -140,6 +148,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [1, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -157,6 +166,7 @@ describe('Game reducer', () => {
 
     it('should trigger win with a fulfill row', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -169,6 +179,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [1, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -186,6 +197,7 @@ describe('Game reducer', () => {
 
     it('should trigger win with a fulfill diagonal up', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -198,6 +210,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [1, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 0, 0, 0, 0, 0],
@@ -215,6 +228,7 @@ describe('Game reducer', () => {
 
     it('should trigger win with a fulfill diagonal down', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 0, 0, 0],
@@ -227,6 +241,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [0, 1],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 0, 0, 0],
@@ -244,6 +259,7 @@ describe('Game reducer', () => {
 
     it('should do nothing if a player have win', () => {
       const state = {
+        score: [1, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 0, 0, 0],
@@ -261,6 +277,7 @@ describe('Game reducer', () => {
 
     it('should trigger draw if no more cell', () => {
       const state = {
+        score: [0, 0],
         currentPlayer: 1,
         board: [
           [1, 1, 2, 1, 1, 2, 2],
@@ -273,6 +290,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [0, 0],
         currentPlayer: 0,
         winner: 0,
         board: [
@@ -292,6 +310,7 @@ describe('Game reducer', () => {
   describe('project next move', () => {
     it('should set nextCell if find', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 0, 0, 0],
@@ -304,6 +323,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 0, 0, 0],
@@ -321,6 +341,7 @@ describe('Game reducer', () => {
 
     it('should do nothing if no next cell in column', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 1, 1, 1],
@@ -333,6 +354,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 1, 1, 1],
@@ -349,6 +371,7 @@ describe('Game reducer', () => {
 
     it('should remove nextCell data if no next cell in column', () => {
       const state = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 1, 1, 1],
@@ -362,6 +385,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [0, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 1, 1, 1],
@@ -380,6 +404,7 @@ describe('Game reducer', () => {
   describe('new game', () => {
     it('should reset board', () => {
       const state = {
+        score: [10, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [1, 2, 1, 2, 0, 0, 0],
@@ -393,6 +418,7 @@ describe('Game reducer', () => {
       };
 
       const expected = {
+        score: [10, 0],
         board: [
           [0, 0, 0, 0, 0, 0, 0],
           [0, 0, 0, 0, 0, 0, 0],
