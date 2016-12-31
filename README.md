@@ -2,6 +2,8 @@
 
 This repo is just a kata to experiment new technologies.
 
+Demo: https://fabien0102.github.io/connect4react/
+
 ## Technologies used
 
 - yarn
