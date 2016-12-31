@@ -46,7 +46,7 @@ export class App extends React.Component<AppProps, void> {
     if (game.winner === 0) {
       modalContent = (<h2>Draw!</h2>);
     } else if (isNumber(game.winner)) {
-      modalContent = (<h2> {game.winner === 1 ? 'Red' : 'Yellow'} player win!</h2>);
+      modalContent = (<h2> {game.winner === 1 ? 'Red' : 'Yellow'} player wins!</h2>);
     }
     let endModal = (
       <div className={styles.endModal}>
