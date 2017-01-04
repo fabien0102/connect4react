@@ -1,0 +1,214 @@
+exports[`App should render correctly 1`] = `
+<div
+  className={undefined}>
+  <h1>
+    Connect 4 react
+  </h1>
+  <div
+    className={undefined}>
+    <i
+      className="undefined undefined">
+      ●
+    </i>
+    0
+     - 
+    0
+    <i
+      className="undefined ">
+      ●
+    </i>
+  </div>
+  <div
+    className={undefined}
+    onMouseLeave={[Function]}>
+    <div
+      className={undefined}>
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+    </div>
+    <div
+      className={undefined}>
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+    </div>
+    <div
+      className={undefined}>
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+    </div>
+    <div
+      className={undefined}>
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+    </div>
+    <div
+      className={undefined}>
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+    </div>
+    <div
+      className={undefined}>
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+      <div
+        className="undefined undefined"
+        onClick={[Function]}
+        onMouseEnter={[Function]} />
+    </div>
+  </div>
+  
+  
+</div>
+`;
