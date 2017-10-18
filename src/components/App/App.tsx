@@ -24,6 +24,7 @@ export class App extends React.Component<AppProps, void> {
         return (
           <Cell
             key={`${columnIndex}-${rowIndex}`}
+            className={`cell-${columnIndex}-${rowIndex}`}
             isProjection={isProjection}
             column={columnIndex}
             value={isProjection ? game.currentPlayer : cell}
@@ -32,7 +33,7 @@ export class App extends React.Component<AppProps, void> {
             />
         );
       });
-      return (<div className={styles.column} key={columnIndex}>{cells}</div>);
+      return (<div className={`${styles.column} column-${columnIndex}`} key={columnIndex}>{cells}</div>);
     });
 
     let playerState = (<div className={styles.score}>
