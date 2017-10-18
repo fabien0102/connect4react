@@ -10,7 +10,7 @@
     "deploy": "gh-pages -d dist",
     "start": "webpack-dev-server",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run --record"
   },
   "dependencies": {
     "@types/enzyme": "^2.5.39",
