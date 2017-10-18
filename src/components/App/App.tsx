@@ -56,7 +56,7 @@ export class App extends React.Component<AppProps, void> {
       </div>
     );
 
-    let overlay = (<div className={styles.overlay}></div>);
+    let overlay = (<div className={`${styles.overlay} overlay`}></div>);
 
     return (
       <div className={styles.app}>
