@@ -85,3 +85,4 @@ $RECYCLE.BIN/
 
 # Cypress
 cypress/screenshots
+cypress/videos

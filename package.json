@@ -3,11 +3,14 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
+    "test": "run-s test:unit test:integration",
+    "test:unit": "jest",
+    "test:integration": "run-p -r start cypress:run",
     "build": "webpack --config webpack.config.prod.js",
     "deploy": "gh-pages -d dist",
     "start": "webpack-dev-server",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "dependencies": {
     "@types/enzyme": "^2.5.39",
@@ -34,6 +37,7 @@
     "jest": "^18.0.0",
     "lodash": "^4.17.2",
     "node-sass": "^4.1.1",
+    "npm-run-all": "^4.1.1",
     "postcss-loader": "^1.2.1",
     "react": "^15.4.1",
     "react-addons-test-utils": "^15.4.1",
