@@ -1,5 +1,7 @@
 # Connect 4 game kata
 
+[![Build Status](https://travis-ci.org/fabien0102/connect4react.svg?branch=master)](https://travis-ci.org/fabien0102/connect4react)
+
 This repo is just a kata to experiment new technologies.
 
 Demo: https://fabien0102.github.io/connect4react/
@@ -15,6 +17,8 @@ Demo: https://fabien0102.github.io/connect4react/
 - jest
 - redux
 - lodash
+- cypress
+- travis
 
 ## Goal
 

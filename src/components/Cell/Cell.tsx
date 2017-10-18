@@ -7,6 +7,7 @@ interface CellProps {
   isProjection?: boolean;
   value: number;
   column: number;
+  className?: string;
 }
 
 export default class Cell extends React.Component<CellProps, void> {
@@ -25,6 +26,7 @@ export default class Cell extends React.Component<CellProps, void> {
     if (value === 1) className += `${styles.redDisc}`;
     if (value === 2) className += `${styles.yellowDisc}`;
     if (isProjection) className += ` ${styles.projection}`;
+    if (this.props.className) className += ` ${this.props.className}`
 
     return (
       <div className={className} onClick={this.onClickHandle.bind(this)} onMouseEnter={this.onMouseEnterHandle.bind(this)} />

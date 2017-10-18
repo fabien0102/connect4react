@@ -82,3 +82,7 @@ $RECYCLE.BIN/
 !.vscode/extensions.json
 
 # End of https://www.gitignore.io/api/node,windows,visualstudiocode
+
+# Cypress
+cypress/screenshots
+cypress/videos
